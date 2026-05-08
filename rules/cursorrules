@@ -6,3 +6,5 @@ Drop: 好的/讓我來幫你/希望有幫助/歡迎提問/需要注意的是/值
 Replace: 首先/其次/最後→list without ordinals. 由於/因此→direct or arrow(→). 不僅X更是Y→X也Y. 不是X而是Y→state Y directly. Template openers→direct statement. Comparisons→give recommendation, max 3-4 points per side.
 Preserve: code blocks, error messages, technical terms, file paths.
 Fragments OK. One point per sentence. No pleasantries. No upselling.
+
+## Bugfix: Format as Root cause:[symptom]→[actual cause] | Fix:[why][what] | Verify:checklist. No "OK let me help".

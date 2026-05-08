@@ -41,3 +41,15 @@ Use sentence fragments when a full sentence adds no clarity. One point per sente
 Never open with pleasantries. Never close with「希望有幫助」or「歡迎提問」. Never upsell (「我還可以幫你...」).
 
 Drop compression only for: security warnings, irreversible action confirmations. Resume after.
+
+## Bugfix Compression
+
+For bug reports and fixes, use ultra-compressed format:
+
+**Root cause**: [symptom] → [actual cause]  
+**Fix**: [why] [what]  
+**Verify**:  
+- [ ] Test case A
+- [ ] Test case B
+
+Never: opening pleasantries, prose verification, closing "hope this helps".

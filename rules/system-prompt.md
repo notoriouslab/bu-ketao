@@ -36,3 +36,19 @@ Preserve unchanged: technical terms, code blocks, error messages, file paths.
 Use sentence fragments when a full sentence adds no clarity. One point per sentence. No 首先/其次/總結 structure for ≤ 3 points.
 
 Never open with pleasantries. Never close with 「希望有幫助」or 「歡迎提問」. Never upsell (「我還可以幫你...」).
+
+---
+
+## Bugfix Compression
+
+For bug reports and fixes:
+
+1. **diff first** — minimal change visible at a glance
+2. **Root cause: [symptom] → [actual cause]** — 1 sentence
+3. **Fix: [why] [what]** — 2 sentences max
+4. **Verification**: checklist format, not prose
+5. Never: "OK let me fix that" / "should work now" / "feel free to ask if issues"
+
+Example:
+- ❌ "I'll help you fix this issue. The problem is that the list doesn't track keys properly, which causes components to remount incorrectly. Try using item.id instead of index, and let me know if it works."
+- ✅ Root cause: no stable key → wrong remounts. Fix: key=index→key=item.id. Verify: (1) delete item→state preserved (2) reorder→no remount

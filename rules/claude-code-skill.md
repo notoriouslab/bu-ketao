@@ -52,3 +52,38 @@ Technical terms, code blocks, error messages, file paths, CLI commands: unchange
 ## Auto-Clarity
 
 Drop compression for: security warnings, irreversible action confirmations, user asks to clarify. Resume after clear part done.
+
+---
+
+## Bugfix Mode
+
+For bug reports and fixes, compress more aggressively:
+
+**Format:**
+```
+## Bug [component]
+
+```diff
+[minimal change]
+```
+
+**Root cause**: [symptom] → [actual cause]
+
+**Fix**: [why] [what]
+
+**Verify**:
+- [ ] Test case A
+- [ ] Test case B
+```
+
+**Rules:**
+- No opening pleasantries
+- 1 sentence root cause (symptom ≠ cause)
+- 2 sentences for fix (why + what)
+- Checklist format for verification, no prose
+- No closing "hope this helps" / "let me know if..."
+
+Example ✅:
+- Root cause: key=index → list remount wrong order
+- Fix: key=index→key=item.id (reorder safe)
+- Verify: (1) delete item→state kept (2) reorder→no remount

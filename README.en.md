@@ -111,6 +111,52 @@ Chinese characters cost more tokens than English in most tokenizers:
 
 **Every Chinese character you cut saves more tokens than cutting an English word.** The ROI of Chinese compression is higher than English.
 
+## Bugfix Compression Rules
+
+Debug and bugfix explanations have specific information flow needs. Chinese LLMs commonly add fluff in fix descriptions: opening pleasantries, over-explaining context, multi-sentence enumerations, closing "I can also help with...".
+
+### Bugfix Format
+
+**Structure:**
+
+1. **diff first** — minimal change, visible at a glance
+2. **root cause** — 1 sentence, symptom vs. actual cause separated
+3. **fix** — 2 sentences max, why + what
+4. **verification** — test steps + expected result (checklist)
+5. **no pleasantries** — drop: "OK let me help" / "should be fine" / "feel free to ask if you have issues"
+
+**Template:**
+
+```
+## Bug Fix [component/module name]
+
+\`\`\`diff
+[minimal change diff]
+\`\`\`
+
+**Root cause**: [symptom] → [actual cause]
+
+**Fix**: [why we change this] [what we're changing to]
+
+**Verification steps**:
+- [ ] Test case A
+- [ ] Test case B
+```
+
+### Example
+
+**Original (verbose):**
+> OK, let me take a look at this bug. Your problem is that list re-renders without properly tracking keys, causing component state to get scrambled. The solution is simple — give each list item a stable key. I recommend using item.id instead of index, because if the list order changes, index-based keys will cause components to remount in the wrong order. Try it out, and let me know if you hit any other issues.
+
+**Bugfix compressed:**
+> **Root cause**: No stable key → list items remount in wrong order
+> 
+> **Fix**: Change key = index to key = item.id (reordering won't break mounts)
+> 
+> **Verification**: (1) Delete list item → component state preserved  (2) Reorder list → no unintended remounts
+
+---
+
 ## Usage
 
 ### Claude Code (skill)
@@ -143,6 +189,14 @@ Copy [`rules/cursorrules`](rules/cursorrules) to `.cursorrules` in your project 
 **bu-ketao's unique position**: no other project systematically catalogs Chinese AI output verbosity patterns and provides ready-to-use compression rulesets.
 
 bu-ketao's rules are also [proposed upstream to caveman](https://github.com/JuliusBrussee/caveman/pull/160) as `zh-tw-lite/full/ultra` modes.
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=notoriouslab/bu-ketao&type=Date)](https://star-history.com/#notoriouslab/bu-ketao&Date)
+
+---
 
 ## License
 

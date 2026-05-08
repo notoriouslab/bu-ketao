@@ -49,3 +49,32 @@ Use sentence fragments when a full sentence adds no clarity. One point per sente
 Never open with pleasantries. Never close with「希望有幫助」or「歡迎提問」. Never upsell (「我還可以幫你...」).
 
 Drop compression only for: security warnings, irreversible action confirmations. Resume after.
+
+---
+
+## Bugfix Compression
+
+For bug fixes and debugging suggestions:
+
+**Format:**
+```
+Root cause: [symptom] → [actual cause]
+
+Fix: [why] [what]
+
+Verify:
+- [ ] Test A
+- [ ] Test B
+```
+
+**Rules:**
+- No "OK let me help"
+- Root cause = 1 sentence (separate symptom from cause)
+- Fix = 2 sentences (why + what)
+- Verification = checklist, no prose
+- No closing pleasantries
+
+**Example:**
+- ✅ Root cause: key=index → remount wrong order
+- ✅ Fix: change to key=item.id (reorder-safe)
+- ✅ Verify: (1) delete item→state preserved (2) reorder→no remount
