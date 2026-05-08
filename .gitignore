@@ -2,3 +2,5 @@ openspec/
 CLAUDE.md
 .spectra.yaml
 .spectra/
+.claude-memory
+opencode.json
